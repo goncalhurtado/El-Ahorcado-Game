@@ -5,7 +5,7 @@ export let splitWord = (word) => {
 
     for (let i = 0; i < wordSplit.length; i++) {
         if (wordObj.length >= 8) {
-            break; // Sal del bucle cuando tengas más de 8 objetos
+            break;
         }
 
         let letter = wordSplit[i];
@@ -13,7 +13,7 @@ export let splitWord = (word) => {
         let letterObj = {
             letter: letter,
             key: Math.floor(Math.random() * 900) + 100,
-            guessed: false,
+            guessed: isVocal,
             vocal: isVocal,
         };
         wordObj.push(letterObj);
