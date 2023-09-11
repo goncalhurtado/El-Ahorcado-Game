@@ -6,10 +6,10 @@ import { startGame } from "../helpers/getWords";
 const Game = ({ gameStatus }) => {
   const [word, setWord] = useState("");
   const [selectedWord, setSelectedWord] = useState("");
+  const [intento, setIntento] = useState();
 
   useEffect(() => {
     let selectedWord = startGame();
-
     setWord(selectedWord);
     setSelectedWord(selectedWord);
   }, [gameStatus]);

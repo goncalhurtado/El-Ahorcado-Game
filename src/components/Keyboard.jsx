@@ -3,11 +3,13 @@ import { createKeyboard } from "../helpers/createKeyboard";
 
 const Keyboard = ({ selectedWord }) => {
   let resultado = createKeyboard(selectedWord);
-  console.log("probando el Keyboard", resultado);
 
   return (
     <>
       <div>Keyboard</div>
+      {resultado?.map((letter, index) => (
+        <button key={index}>{letter}</button>
+      ))}
     </>
   );
 };

@@ -14,13 +14,14 @@ export let createKeyboard = (word) => {
 
     while (i < 10) {
         let letter = getRandomLetter();
-
         if (!wordSplit.includes(letter)) {
             wordSplit.push(letter)
             i++
         }
-
     }
-    return wordSplit
+    return shuffle(wordSplit)
+}
 
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
 }
