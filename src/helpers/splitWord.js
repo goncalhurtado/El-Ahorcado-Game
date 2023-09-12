@@ -1,6 +1,5 @@
-let wordObj = [];
-
 export let splitWord = (word) => {
+    let wordObj = [];
     let wordSplit = word.split("");
 
     for (let i = 0; i < wordSplit.length; i++) {

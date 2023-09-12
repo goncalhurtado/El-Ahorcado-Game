@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import WordInput from "./WordInput";
 
-const Word = ({ word, intento, objWord }) => {
+const Word = ({ contador, objWord }) => {
   return (
     <>
-      <p>la palabra es {word}</p>
-      {objWord?.map((item) => (
-        <WordInput word={item} key={item.key} />
-      ))}
+      <div>
+        <p>{contador === 8 && "perdiste!"}</p>
+        {objWord?.map((item) => (
+          <WordInput word={item} key={item.key} />
+        ))}
+      </div>
     </>
   );
 };

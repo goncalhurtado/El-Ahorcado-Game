@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Word from "./Word";
 
 import Keyboard from "./Keyboard";
-import { startGame } from "../helpers/getWords";
+import { startGame, newGame } from "../helpers/getWords";
 import { checkInput, modifyObj } from "../helpers/checkInput";
 import { splitWord } from "../helpers/splitWord";
 import Player from "./Player";
@@ -17,11 +17,22 @@ const Game = ({ gameStatus }) => {
     setIntento(newIntento);
 
     if (!checkInput(word, newIntento)) {
-      setContador(contador + 1);
+      if (contador < 8) {
+        setContador(contador + 1);
+      } else if (contador === 8) {
+        console.log("perdiste", contador);
+      }
       return;
     }
     let objUpdate = modifyObj(objWord, newIntento);
     setObjWord(objUpdate);
+  };
+
+  const startNewGame = () => {
+    let newWordSelected = newGame();
+    setWord(newWordSelected);
+    let newWordSplit = splitWord(newWordSelected);
+    setObjWord(newWordSplit);
   };
 
   useEffect(() => {
@@ -32,9 +43,14 @@ const Game = ({ gameStatus }) => {
 
   return (
     <>
-      <Player contador={contador} />
-      <Word word={word} intento={intento} objWord={objWord} />
-      <Keyboard word={word} updateIntento={updateIntento} />
+      <div style={{ textAlign: "center" }}>
+        <Player contador={contador} />
+        <div>
+          <button onClick={startNewGame}>Start New Game</button>
+        </div>
+        <Word objWord={objWord} contador={contador} />
+        <Keyboard word={word} updateIntento={updateIntento} />
+      </div>
     </>
   );
 };

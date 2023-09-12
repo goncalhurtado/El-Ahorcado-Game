@@ -9,7 +9,7 @@ const Keyboard = ({ word, updateIntento }) => {
 
   return (
     <>
-      <div>
+      <div style={{ marginTop: "10px" }}>
         <button onClick={() => handle("q")}>Q</button>
         <button onClick={() => handle("w")}>W</button>
         <button onClick={() => handle("e")}>E</button>

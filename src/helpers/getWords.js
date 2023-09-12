@@ -34,3 +34,21 @@ export async function fetchData() {
     }
 }
 let wordsForPlay = []
+
+export let newGame = () => {
+    let wordString = localStorage.getItem("words")
+    let words = JSON.parse(wordString)
+    let newWord = "";
+
+    if (words.length === 1) {
+        fetchData()
+        newWord = selectWord()
+
+    } else {
+        words.splice(0, 1);
+        localStorage.setItem("words", JSON.stringify(words))
+        newWord = selectWord()
+    }
+
+    return newWord
+}
