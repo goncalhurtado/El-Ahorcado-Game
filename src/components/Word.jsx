@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import WordInput from "./WordInput";
 
 const Word = ({ word, intento, objWord }) => {
+  console.log(objWord);
   return (
     <>
       <p>la palabra es {word}</p>
-      {objWord?.map((word) => (
-        <WordInput word={word} key={word.key} />
+      {objWord?.map((item) => (
+        <WordInput word={item} key={item.key} />
       ))}
     </>
   );

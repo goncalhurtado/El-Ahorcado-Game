@@ -11,14 +11,13 @@ function App() {
   };
   return (
     <>
-      {!game ? (
+      {game ? (
+        <Game gameStatus={gameStatus} />
+      ) : (
         <button type="button" onClick={Handle}>
           Start Game
         </button>
-      ) : (
-        ""
       )}
-      {game ? <Game gameStatus={gameStatus} /> : ""}
     </>
   );
 }

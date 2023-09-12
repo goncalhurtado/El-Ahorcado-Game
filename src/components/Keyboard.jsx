@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { createKeyboard } from "../helpers/createKeyboard";
 
-const Keyboard = ({ selectedWord, updateIntento }) => {
-  let resultado = createKeyboard(selectedWord);
+const Keyboard = ({ word, updateIntento }) => {
+  let resultado = createKeyboard(word);
   const handle = (letter) => {
     updateIntento(letter);
   };
