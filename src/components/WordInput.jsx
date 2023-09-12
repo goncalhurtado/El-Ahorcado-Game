@@ -6,6 +6,7 @@ const WordInput = ({ word }) => {
       type="text"
       defaultValue={word.guessed === true ? word.letter : ""}
       readOnly
+      style={{ width: "35px" }}
     />
   );
 };

@@ -5,6 +5,7 @@ import Keyboard from "./Keyboard";
 import { startGame } from "../helpers/getWords";
 import { checkInput, modifyObj } from "../helpers/checkInput";
 import { splitWord } from "../helpers/splitWord";
+import Player from "./Player";
 
 const Game = ({ gameStatus }) => {
   const [word, setWord] = useState("");
@@ -14,7 +15,6 @@ const Game = ({ gameStatus }) => {
 
   const updateIntento = (newIntento) => {
     setIntento(newIntento);
-    console.log(newIntento);
 
     if (!checkInput(word, newIntento)) {
       setContador(contador + 1);
@@ -32,6 +32,7 @@ const Game = ({ gameStatus }) => {
 
   return (
     <>
+      <Player contador={contador} />
       <Word word={word} intento={intento} objWord={objWord} />
       <Keyboard word={word} updateIntento={updateIntento} />
     </>

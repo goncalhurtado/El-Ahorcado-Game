@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import WordInput from "./WordInput";
 
 const Word = ({ word, intento, objWord }) => {
-  console.log(objWord);
   return (
     <>
       <p>la palabra es {word}</p>

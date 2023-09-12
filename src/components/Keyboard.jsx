@@ -1,20 +1,47 @@
 import React, { useState } from "react";
-import { createKeyboard } from "../helpers/createKeyboard";
+// import { createKeyboard } from "../helpers/createKeyboard";
 
 const Keyboard = ({ word, updateIntento }) => {
-  let resultado = createKeyboard(word);
+  // let resultado = createKeyboard(word);
   const handle = (letter) => {
     updateIntento(letter);
   };
 
   return (
     <>
-      <div>Keyboard</div>
-      {resultado?.map((letter, index) => (
-        <button onClick={() => handle(letter)} key={index}>
-          {letter}
-        </button>
-      ))}
+      <div>
+        <button onClick={() => handle("q")}>Q</button>
+        <button onClick={() => handle("w")}>W</button>
+        <button onClick={() => handle("e")}>E</button>
+        <button onClick={() => handle("r")}>R</button>
+        <button onClick={() => handle("t")}>T</button>
+        <button onClick={() => handle("y")}>Y</button>
+        <button onClick={() => handle("u")}>U</button>
+        <button onClick={() => handle("i")}>I</button>
+        <button onClick={() => handle("o")}>O</button>
+        <button onClick={() => handle("p")}>P</button>
+      </div>
+      <div>
+        <button onClick={() => handle("a")}>A</button>
+        <button onClick={() => handle("s")}>S</button>
+        <button onClick={() => handle("d")}>D</button>
+        <button onClick={() => handle("f")}>F</button>
+        <button onClick={() => handle("g")}>G</button>
+        <button onClick={() => handle("h")}>H</button>
+        <button onClick={() => handle("j")}>J</button>
+        <button onClick={() => handle("k")}>K</button>
+        <button onClick={() => handle("l")}>L</button>
+        <button onClick={() => handle("ñ")}>Ñ</button>
+      </div>
+      <div>
+        <button onClick={() => handle("z")}>Z</button>
+        <button onClick={() => handle("x")}>X</button>
+        <button onClick={() => handle("c")}>C</button>
+        <button onClick={() => handle("v")}>V</button>
+        <button onClick={() => handle("b")}>B</button>
+        <button onClick={() => handle("n")}>N</button>
+        <button onClick={() => handle("m")}>M</button>
+      </div>
     </>
   );
 };
