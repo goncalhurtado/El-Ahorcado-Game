@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Word from "./Word";
-
 import Keyboard from "./Keyboard";
 import { startGame, newGame } from "../helpers/getWords";
 import { checkInput, modifyObj } from "../helpers/checkInput";
 import { splitWord } from "../helpers/splitWord";
+import { checkIfWin } from "../helpers/checkInput";
 import Player from "./Player";
 
 const Game = ({ gameStatus }) => {
@@ -12,15 +12,20 @@ const Game = ({ gameStatus }) => {
   const [intento, setIntento] = useState();
   const [contador, setContador] = useState(0);
   const [objWord, setObjWord] = useState();
+  const [gameEnd, setgameEnd] = useState("");
 
   const updateIntento = (newIntento) => {
     setIntento(newIntento);
 
+    //PREGUNTAR A MARTIN PORQUE FUNCIONA DE ESTA MANERA
     if (!checkInput(word, newIntento)) {
       if (contador < 8) {
         setContador(contador + 1);
+        if (contador === 7) {
+          setgameEnd("lose");
+        }
       } else if (contador === 8) {
-        console.log("perdiste", contador);
+        setgameEnd("lose");
       }
       return;
     }
@@ -33,7 +38,13 @@ const Game = ({ gameStatus }) => {
     setWord(newWordSelected);
     let newWordSplit = splitWord(newWordSelected);
     setObjWord(newWordSplit);
+    setContador(0);
+    setgameEnd("");
   };
+
+  if (checkIfWin(objWord) && gameEnd !== "win") {
+    setgameEnd("win");
+  }
 
   useEffect(() => {
     let selectedWord = startGame();
@@ -46,9 +57,9 @@ const Game = ({ gameStatus }) => {
       <div style={{ textAlign: "center" }}>
         <Player contador={contador} />
         <div>
-          <button onClick={startNewGame}>Start New Game</button>
+          {gameEnd && <button onClick={startNewGame}>Start New Game</button>}
         </div>
-        <Word objWord={objWord} contador={contador} />
+        <Word objWord={objWord} setgameEnd={setgameEnd} gameEnd={gameEnd} />
         <Keyboard word={word} updateIntento={updateIntento} />
       </div>
     </>
