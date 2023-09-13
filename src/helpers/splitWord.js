@@ -11,7 +11,7 @@ export let splitWord = (word) => {
         let isVocal = ["a", "e", "i", "o", "u"].includes(letter);
         let letterObj = {
             letter: letter,
-            key: Math.floor(Math.random() * 900) + 100,
+            key: Math.floor(Math.random() * 9000) + 1000,
             guessed: isVocal,
             vocal: isVocal,
         };

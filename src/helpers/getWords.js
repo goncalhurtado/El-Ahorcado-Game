@@ -33,6 +33,7 @@ export async function fetchData() {
         console.error(error);
     }
 }
+
 let wordsForPlay = []
 
 export let newGame = () => {
@@ -41,8 +42,10 @@ export let newGame = () => {
     let newWord = "";
 
     if (words.length === 1) {
-        fetchData()
-        newWord = selectWord()
+
+        let response = fetchData()
+        console.log(response);
+
 
     } else {
         words.splice(0, 1);
