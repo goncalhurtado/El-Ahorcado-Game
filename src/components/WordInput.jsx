@@ -6,7 +6,7 @@ const WordInput = ({ word }) => {
       type="text"
       defaultValue={word.guessed === true ? word.letter : ""}
       readOnly
-      style={{ width: "35px" }}
+      className={word.guessed === true ? "word-input-guessed" : "word-input"}
     />
   );
 };

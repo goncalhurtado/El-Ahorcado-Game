@@ -57,9 +57,9 @@ const Game = ({ gameStatus }) => {
       <div style={{ textAlign: "center" }}>
         <Player contador={contador} />
         <div>
-          {gameEnd && <button onClick={startNewGame}>Start New Game</button>}
+          {gameEnd && <button onClick={startNewGame}>Nuevo Juego</button>}
         </div>
-        <Word objWord={objWord} setgameEnd={setgameEnd} gameEnd={gameEnd} />
+        <Word objWord={objWord} gameEnd={gameEnd} word={word} />
         <Keyboard word={word} updateIntento={updateIntento} />
       </div>
     </>
